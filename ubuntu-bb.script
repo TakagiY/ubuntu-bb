@@ -1,0 +1,49 @@
+Window.SetBackgroundTopColor(0.00, 0.00, 1.00);
+Window.SetBackgroundBottomColor(0.00, 0.00, 1.00);
+ubuntu_logo_image_original = Image("ubuntu_bb.png");
+ubuntu_logo_image = ubuntu_logo_image_original.Scale(ubuntu_logo_image_original.GetWidth() / 2, ubuntu_logo_image_original.GetHeight() /2);
+ubuntu_logo = Sprite();
+
+ubuntu_logo_w = ubuntu_logo_image.GetWidth();
+ubuntu_logo_h = ubuntu_logo_image.GetHeight();
+padding_h =  Window.GetHeight() / 2 + ubuntu_logo_h / 2;
+ubuntu_logo.SetX(Window.GetWidth() / 2 - ubuntu_logo_w / 2);
+ubuntu_logo.SetY(padding_h);
+
+fun boot_progress_cb(time, progress) {
+  resized_ubuntu_logo = ubuntu_logo_image.Scale(ubuntu_logo_w, ubuntu_logo_h * Math.Min(1.0, progress * 3.0));
+  
+  ubuntu_logo.SetImage(resized_ubuntu_logo);
+  ubuntu_logo.SetY(padding_h - ubuntu_logo_h * Math.Min(1.0, progress * 3.0));
+}
+Plymouth.SetBootProgressFunction(boot_progress_cb);
+
+
+fun message_cb(message) {
+}
+Plymouth.SetMessageFunction(message_cb);
+
+
+fun display_password_cb(prompt, bullets) {
+}
+Plymouth.SetDisplayPasswordFunction(display_password_cb); 
+
+
+fun refresh_cb() {
+}
+Plymouth.SetRefreshFunction(refresh_cb);
+
+
+fun update_status_cb(status) {
+}
+Plymouth.SetUpdateStatusFunction(update_status_cb);
+
+
+fun display_normal_cb() {
+}
+Plymouth.SetDisplayNormalFunction(display_normal_cb);
+
+
+fun quit_cb() {
+}
+Plymouth.SetQuitFunction(quit_cb);

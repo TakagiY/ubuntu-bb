@@ -1,0 +1,8 @@
+[Plymouth Theme]
+Name=Ubuntu BB
+Description=A ubuntu theme that is parody of Dokaben BB.
+ModuleName=script
+
+[script]
+ImageDir=/usr/share/plymouth/themes/ubuntu-bb
+ScriptFile=/usr/share/plymouth/themes/ubuntu-bb/ubuntu-bb.script
